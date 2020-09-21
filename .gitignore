@@ -1,0 +1,14 @@
+.idea
+coverage
+.DS_Store
+
+node_modules/
+dist/
+yarn-error.log
+
+#logs
+info.log
+error.log
+
+# Sensitive Files
+.env

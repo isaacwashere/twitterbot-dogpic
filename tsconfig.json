@@ -1,0 +1,24 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "declaration": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["dom", "es2017", "ES6", "es2019", "ESNext"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "baseUrl": "."
+  }
+}
