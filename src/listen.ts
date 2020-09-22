@@ -10,14 +10,15 @@ export const listen = () => {
 
   mentionStream.on('tweet', async (tweet: Twit) => {
     const botWasMentioned = determineIfMentioned(tweet);
+    const isBot = tweet.user.screen_name.toLowerCase() === USERNAME.toLowerCase();
     logger.debug('\n\nTWEET IS: ', tweet);
 
-    if (!botWasMentioned) {
-      logger.info(`@${tweet.user.screen_name} did not mention the bot.`);
+    if (!botWasMentioned || isBot) {
+      logger.info(`\n\n tweet by: @${tweet.user.screen_name} being ignored...`);
       return;
     }
 
-    logger.debug(`@${tweet.user.screen_name} wants a dog pic...`);
+    logger.info(`@${tweet.user.screen_name} wants a dog pic...`);
     const dogPic = await handleGetDogPic();
     dogPic
       ? await replyWithPic(dogPic, tweet.id_str, tweet.user.screen_name)
