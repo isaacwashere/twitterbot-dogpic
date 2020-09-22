@@ -14,7 +14,7 @@ export const listen = () => {
     logger.debug('\n\nTWEET IS: ', tweet);
 
     if (!botWasMentioned || isBot) {
-      logger.info(`\n\n tweet by: @${tweet.user.screen_name} being ignored...`);
+      logger.info(`tweet by: @${tweet.user.screen_name} being ignored...`);
       return;
     }
 
