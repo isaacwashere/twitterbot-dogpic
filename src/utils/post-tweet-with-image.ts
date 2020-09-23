@@ -40,6 +40,7 @@ export const postTweetWithImage = async (
         status: `@${user} ${message}`,
         media_ids: [mediaIdStr],
         in_reply_to_status_id: replyStatusId,
+        auto_populate_reply_metadata: true,
       };
       logger.debug('Params before posting tweet: ', { params });
 
