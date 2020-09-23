@@ -7,9 +7,6 @@ export const createUnsplashClient = (): Unsplash => {
   try {
     return new Unsplash({
       accessKey: UNSPLASH_API_ACC_KEY,
-      headers: {
-        'X-Custom-Header': 'foo',
-      },
       timeout: 500,
     });
   } catch (error) {
