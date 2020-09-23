@@ -11,9 +11,10 @@ export const listen = () => {
   mentionStream.on('tweet', async (tweet: Twit) => {
     const botWasMentioned = determineIfMentioned(tweet);
     const isBot = tweet.user.screen_name.toLowerCase() === USERNAME.toLowerCase();
+    const isRetweet = determineIfRetweet(tweet);
     logger.debug('\n\nTWEET IS: ', tweet);
 
-    if (!botWasMentioned || isBot) {
+    if (!botWasMentioned || isBot || isRetweet) {
       logger.info(`tweet by: @${tweet.user.screen_name} being ignored...`);
       return;
     }
@@ -37,4 +38,8 @@ const determineIfMentioned = (tweet: Twit) => {
     }
     return acc;
   }, false);
+};
+
+const determineIfRetweet = (tweet: Twit): boolean => {
+  return tweet.text.includes('RT');
 };
