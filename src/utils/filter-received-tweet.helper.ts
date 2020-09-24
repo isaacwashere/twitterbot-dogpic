@@ -72,6 +72,8 @@ export const determineIfKeyWordUsed = (tweet: Twit): boolean => {
       (term: string) =>
         !term.toLowerCase().includes('http') &&
         !term.toLowerCase().includes('@') &&
+        !term.toLowerCase().includes('\'') &&
+        !term.toLowerCase().includes('\"') &&
         !term.toLowerCase().includes('#')
     )
     .filter((term: string) => term.toLowerCase().includes(KEYWORD));
