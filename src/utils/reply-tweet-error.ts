@@ -6,6 +6,7 @@ export const replyWithError = async (replyStatusId: string, user: string) => {
       'statuses/update',
       {
         in_reply_to_status_id: replyStatusId,
+        auto_populate_reply_metadata: true,
         status: `@${user} My bad, I couldn't find a dog pic. Mention me again and I'll try again.`,
       },
       function (_error, _data, _response) {

@@ -3,6 +3,14 @@ import imageToBase64 from 'image-to-base64';
 import { replyWithError } from './reply-tweet-error';
 import { TwitMediaUploadData } from 'src/interfaces';
 
+/**
+ * @desc Use the image url and upload the pic to Twitter, then use the received media_id to create the metadata needed for the tweet, then post the tweet (as a reply) with the image
+ * @param {string} pic - image url for the pic
+ * @param {string} replyStatusId - status/tweet id used to tell Twitter who we're replying to
+ * @param {string} user - screen name of the user we're replying to
+ * @param {string} message - greeting/message to the user
+ * @return {Promise<void>}
+ */
 export const postTweetWithImage = async (
   pic: string,
   replyStatusId: string,
