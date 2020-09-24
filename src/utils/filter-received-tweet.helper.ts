@@ -12,7 +12,13 @@ export const ignoreTweet = (tweet: Twit): boolean => {
   const isRetweet = determineIfTweetIsARetweet(tweet);
   const botWasMentioned = determineIfBotMentioned(tweet);
 
-  logger.debug(`Tweet ignore reason: `, { botWasMentioned, isBot, isRetweet });
+  logger.debug(`Tweet ignore reason: `, {
+    botWasMentioned,
+    isBot,
+    isRetweet,
+    tweet: tweet.text,
+    mentions: tweet.entities.user_mentions,
+  });
 
   return !botWasMentioned || isBot || isRetweet;
 };
