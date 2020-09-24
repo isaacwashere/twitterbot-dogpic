@@ -1,4 +1,4 @@
-import { logger } from 'src';
+import { logger } from '../index';
 import { USERNAME } from '../constants';
 import { Twit, TwitUserMentionsEntityEntity } from '../interfaces';
 
