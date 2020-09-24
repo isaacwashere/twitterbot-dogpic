@@ -1,4 +1,12 @@
-import { KEYWORD, START_OF_KEYWORD, END_OF_KEYWORD, ARRAY_LENGTH_OF_KEYWORD } from '../constants';
+import {
+  KEYWORD,
+  START_OF_KEYWORD,
+  END_OF_KEYWORD,
+  ARRAY_LENGTH_OF_KEYWORD,
+  EARLIEST_STARTING_INDEX_OF_KEYWORD,
+  EARLIEST_ENDING_INDEX_OF_KEYWORD,
+  EARLIEST_SUFFIX_CHAR_INDEX_LOCATION,
+} from '../constants';
 import { Twit } from '../interfaces';
 
 /**
@@ -73,8 +81,8 @@ export const tweetContainsKeyword = (tweet: Twit) => {
  */
 export const termContainsKeyWordAndNoLettersAfter = (term: string): boolean => {
   return (
-    term.split('')[0] === START_OF_KEYWORD &&
-    term.split('')[3] === END_OF_KEYWORD &&
+    term.split('')[EARLIEST_STARTING_INDEX_OF_KEYWORD] === START_OF_KEYWORD &&
+    term.split('')[EARLIEST_ENDING_INDEX_OF_KEYWORD] === END_OF_KEYWORD &&
     aSuffixCharExistsAndItsNotALetter(term)
   );
 };
@@ -85,8 +93,9 @@ export const termContainsKeyWordAndNoLettersAfter = (term: string): boolean => {
  * @return {boolean} whether the term in the tweet is the keyword
  */
 export const aSuffixCharExistsAndItsNotALetter = (term: string) => {
-  if (!term.split('')[4]) return true;
-  if (term.split('')[4] && !term.split('')[4].match(/[a-z]/i)) return true;
+  if (!term.split('')[EARLIEST_SUFFIX_CHAR_INDEX_LOCATION]) return true;
+  if (term.split('')[EARLIEST_SUFFIX_CHAR_INDEX_LOCATION] && !term.split('')[4].match(/[a-z]/i))
+    return true;
 
   return false;
 };
