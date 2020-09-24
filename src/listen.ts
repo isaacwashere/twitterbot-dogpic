@@ -1,5 +1,5 @@
 import { Twit } from './interfaces';
-import { USERNAME } from './constants';
+import { KEYWORD, USERNAME } from './constants';
 import { logger, twitter } from './index';
 import { replyWithPic } from './utils/reply-tweet-dog-pic';
 import { replyWithError } from './utils/reply-tweet-error';
@@ -7,7 +7,7 @@ import { handleGetDogPic } from './utils/handle-get-dog-pic';
 import { ignoreTweet } from './utils/filter-received-tweet.helper';
 
 export const listen = () => {
-  const mentionStream = twitter.stream('statuses/filter', { track: USERNAME });
+  const mentionStream = twitter.stream('statuses/filter', { track: [USERNAME, KEYWORD] });
 
   mentionStream.on('tweet', async (tweet: Twit) => {
     const shouldIgnore = ignoreTweet(tweet);
