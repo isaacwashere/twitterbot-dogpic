@@ -34,19 +34,17 @@ export const alignLogger = winston.format.combine(
   winston.format.printf(info => {
     const { label, timestamp, level, message, ...args } = info;
 
-    const ts = timestamp.slice(0, 19).replace('T', ' - ');
-    return `${label}-${ts}EDT [${level}]: ${message} ${
+    const ts = timestamp.slice(0, 21).replace(',', ' -');
+    return `${label} - ${ts} EDT [${level}]: ${message} ${
       Object.keys(args).length ? JSON.stringify(args, null, 2) : ''
     }`;
   })
 );
 
 export const timezone = () => {
-  const time = new Date().toLocaleString('en-US', {
+  return new Date().toLocaleString('en-US', {
     timeZone: TIMEZONE,
   });
-
-  return new Date(time).toISOString();
 };
 
 export const configTransports = () => {

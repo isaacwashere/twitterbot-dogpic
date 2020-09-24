@@ -12,7 +12,7 @@ export const TWITTER_ACC_TOKEN_SECRET = env.get('TWITTER_ACC_TOKEN_SECRET').requ
 export const TWITTER_API_KEY = env.get('TWITTER_API_KEY').required().asString();
 export const TWITTER_API_SECRET = env.get('TWITTER_API_SECRET').required().asString();
 
-export const TIMEZONE = env.get('TZ').asString();
+export const TIMEZONE = env.get('TZ').required().asString();
 
 export const USERNAME = 'INeedADogPic';
 export const APP_USERNAME = USERNAME.toLowerCase();
