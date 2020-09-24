@@ -42,10 +42,18 @@ export const determineIfBotMentioned = (tweet: Twit): boolean => {
 };
 
 /**
- * @desc Determine if the tweet received is a retweet by returning whether or not the tweet contains 'RT'.
+ * @desc Determine if the tweet received is a retweet by splitting the tweet and checking to see if the first item in the tweet is 'RT'
  * @param {Twit} tweet - the standard Tweet object
  * @return {boolean} whether the tweet is a retweet
  */
 export const determineIfTweetIsARetweet = (tweet: Twit): boolean => {
-  return tweet.text.includes('RT');
+  const firstItemInTweet = tweet.text.split(' ')[0];
+
+  return firstItemInTweet.includes('@')
+    ? determineIfTweetBeforeAtContainsRT(firstItemInTweet)
+    : firstItemInTweet.includes('RT');
+};
+
+export const determineIfTweetBeforeAtContainsRT = (tweet: string) => {
+  return tweet.split('@')[0].includes('RT');
 };
