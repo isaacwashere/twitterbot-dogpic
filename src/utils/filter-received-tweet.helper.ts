@@ -68,17 +68,20 @@ export const determineIfTweetBeforeAtContainsRT = (tweet: string) => {
 export const determineIfKeyWordUsed = (tweet: Twit): boolean => {
   const termsInTweetThatMatchKeyWord = tweet.text
     .split(' ')
-    .filter(
-      (term: string) =>
-        !term.toLowerCase().includes('http') &&
-        !term.toLowerCase().includes('@') &&
-        !term.toLowerCase().includes('\'') &&
-        !term.toLowerCase().includes('\"') &&
-        !term.toLowerCase().includes('#')
-    )
-    .filter((term: string) => term.toLowerCase().includes(KEYWORD));
+    .filter((term: string) => includesIrrelevantChar(term))
+    .filter((term: string) => term.toLowerCase() === KEYWORD);
 
   if (termsInTweetThatMatchKeyWord?.length >= 1) return true;
 
   return false;
+};
+
+export const includesIrrelevantChar = (term: string) => {
+  return (
+    !term.toLowerCase().includes('http') &&
+    !term.toLowerCase().includes('@') &&
+    !term.toLowerCase().includes("'") &&
+    !term.toLowerCase().includes('"') &&
+    !term.toLowerCase().includes('#')
+  );
 };
