@@ -61,7 +61,7 @@ export const determineIfTweetBeforeAtContainsRT = (tweet: string) => {
 };
 
 /**
- * @desc Determine if the tweet contains the keyword by splitting the tweet into an array and filtering irrelevant parts out (ie the mentions, hashtags, and links)
+ * @desc Determine if the tweet contains the keyword by splitting the tweet into an array and filtering irrelevant parts out (ie the mentions, hashtags, links, and when the keyword is in quotes)
  * @param {Twit} tweet - the standard Tweet object
  * @return {boolean} whether the tweet is a retweet
  */
