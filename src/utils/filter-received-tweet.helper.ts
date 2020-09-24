@@ -1,6 +1,7 @@
 import { logger } from '../index';
-import { KEYWORD, USERNAME } from '../constants';
+import { USERNAME } from '../constants';
 import { Twit, TwitUserMentionsEntityEntity } from '../interfaces';
+import { determineIfKeyWordUsed } from './check-if-keyword-present.helper';
 
 /**
  * @desc This determines which tweets to be ignored. We're ignoring: retweets, tweets that are by the bot, tweets that the bot is not mentioned in, and tweets that do not contain the key word
@@ -56,32 +57,11 @@ export const determineIfTweetIsARetweet = (tweet: Twit): boolean => {
     : firstTermInTweet.includes('RT');
 };
 
+/**
+ * @desc Determine if the tweet that contains a mention is a retweet by splitting it at the '@' and checking to see if RT is the 1st item
+ * @param {string} tweet - the text of the tweet
+ * @return {boolean}
+ */
 export const determineIfTweetBeforeAtContainsRT = (tweet: string) => {
   return tweet.split('@')[0].includes('RT');
-};
-
-/**
- * @desc Determine if the tweet contains the keyword by splitting the tweet into an array and filtering irrelevant parts out (ie the mentions, hashtags, links, and when the keyword is in quotes)
- * @param {Twit} tweet - the standard Tweet object
- * @return {boolean} whether the tweet is a retweet
- */
-export const determineIfKeyWordUsed = (tweet: Twit): boolean => {
-  const termsInTweetThatMatchKeyWord = tweet.text
-    .split(' ')
-    .filter((term: string) => includesIrrelevantChar(term))
-    .filter((term: string) => term.toLowerCase() === KEYWORD);
-
-  if (termsInTweetThatMatchKeyWord?.length >= 1) return true;
-
-  return false;
-};
-
-export const includesIrrelevantChar = (term: string) => {
-  return (
-    !term.toLowerCase().includes('http') &&
-    !term.toLowerCase().includes('@') &&
-    !term.toLowerCase().includes("'") &&
-    !term.toLowerCase().includes('"') &&
-    !term.toLowerCase().includes('#')
-  );
 };

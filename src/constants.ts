@@ -17,7 +17,12 @@ export const TIMEZONE = env.get('TZ').required().asString();
 export const USERNAME = 'INeedADogPic';
 export const APP_USERNAME = USERNAME.toLowerCase();
 export const TWITTER_MENTION = `@${APP_USERNAME}`;
+
 export const KEYWORD = 'bark';
+export const START_OF_KEYWORD = 'b';
+export const END_OF_KEYWORD = 'k';
+export const ARRAY_LENGTH_OF_KEYWORD = 3;
+export const LENGTH_OF_KEYWORD = 4;
 
 export const DOG_CEO_API_RANDOM = 'https://dog.ceo/api/breeds/image/random';
 
