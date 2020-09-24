@@ -94,7 +94,10 @@ export const termContainsKeyWordAndNoLettersAfter = (term: string): boolean => {
  */
 export const aSuffixCharExistsAndItsNotALetter = (term: string) => {
   if (!term.split('')[EARLIEST_SUFFIX_CHAR_INDEX_LOCATION]) return true;
-  if (term.split('')[EARLIEST_SUFFIX_CHAR_INDEX_LOCATION] && !term.split('')[4].match(/[a-z]/i))
+  if (
+    term.split('')[EARLIEST_SUFFIX_CHAR_INDEX_LOCATION] &&
+    !term.split('')[EARLIEST_SUFFIX_CHAR_INDEX_LOCATION].match(/[a-zA-Z]/i)
+  )
     return true;
 
   return false;
