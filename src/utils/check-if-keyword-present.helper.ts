@@ -47,9 +47,11 @@ export const spacedOutKeyword = (tweet: Twit) => {
   let startOfKeyWord = 0;
   let endOfKeyWord = 0;
   tweet.text.split(' ').forEach((term, currentIndex) => {
-    if (term.toLowerCase() === START_OF_KEYWORD) startOfKeyWord = currentIndex;
+    if (term.toLowerCase() === START_OF_KEYWORD && startOfKeyWord === 0)
+      startOfKeyWord = currentIndex;
     if (
       term.toLowerCase() === END_OF_KEYWORD &&
+      startOfKeyWord !== 0 &&
       currentIndex === startOfKeyWord + ARRAY_LENGTH_OF_KEYWORD
     )
       endOfKeyWord = currentIndex;
