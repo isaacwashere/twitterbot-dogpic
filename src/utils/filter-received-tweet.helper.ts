@@ -1,7 +1,7 @@
 import { logger } from '../index';
-import { USERNAME } from '../constants';
+import { KEYWORD, USERNAME } from '../constants';
 import { Twit, TwitUserMentionsEntityEntity } from '../interfaces';
-import { determineIfKeyWordUsed } from './check-if-keyword-present.helper';
+import { KeywordInTweet } from 'keyword-in-tweet';
 
 /**
  * @desc This determines which tweets to be ignored. We're ignoring: retweets, tweets that are by the bot, tweets that the bot is not mentioned in, and tweets that do not contain the key word
@@ -10,7 +10,7 @@ import { determineIfKeyWordUsed } from './check-if-keyword-present.helper';
  */
 export const ignoreTweet = (tweet: Twit): boolean => {
   const isBot = tweet.user.screen_name.toLowerCase() === USERNAME.toLowerCase();
-  const containsKeyWord = determineIfKeyWordUsed(tweet);
+  const containsKeyWord = KeywordInTweet(tweet.text, KEYWORD);
   const isRetweet = determineIfTweetIsARetweet(tweet);
   const botWasMentioned = determineIfBotMentioned(tweet);
 
