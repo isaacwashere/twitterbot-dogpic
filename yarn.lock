@@ -1030,10 +1030,10 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
-keyword-in-tweet@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/keyword-in-tweet/-/keyword-in-tweet-1.0.2.tgz#27f8314c852c941d231588b162dfe2d7c45f3886"
-  integrity sha512-D4h1eN8y0fy0/7azj8HgRgT7kUZqcnKVkRWZcAg2H6AH5F2pHhslPlOR41aIzsXDg7tTNdw4ICYYlqxzO8NlRw==
+keyword-in-tweet@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/keyword-in-tweet/-/keyword-in-tweet-1.1.0.tgz#f3b1396a620665c9b9b527a163dba5601bc8999e"
+  integrity sha512-C7sOX/rIePichs5Px1Pt4cQJtpnY5Cb9bMmE4cVJN5HEM2nz+P8c+6TOCbLPM+heVGslD3F7SUxJNPdsxKaHKQ==
 
 kuler@^2.0.0:
   version "2.0.0"
