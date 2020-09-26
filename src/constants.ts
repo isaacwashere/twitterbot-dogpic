@@ -19,13 +19,6 @@ export const APP_USERNAME = USERNAME.toLowerCase();
 export const TWITTER_MENTION = `@${APP_USERNAME}`;
 
 export const KEYWORD = '!bark!';
-export const START_OF_KEYWORD = '!';
-export const END_OF_KEYWORD = '!';
-export const ARRAY_LENGTH_OF_KEYWORD = 5; // if the keyword were an array, what would be the index of the last item
-export const LENGTH_OF_KEYWORD = 6; // if the keyword were an array, what would be the array length
-export const EARLIEST_STARTING_INDEX_OF_KEYWORD = 0; // if the keyword were in an array of its letters what would the initial index be
-export const EARLIEST_ENDING_INDEX_OF_KEYWORD = 5; // if the keyword were in an array of its letters what would the final index be
-export const EARLIEST_SUFFIX_CHAR_INDEX_LOCATION = 6; // If there was a suffix character immediately after the last letter in the keyword, what would its index be
 
 export const DOG_CEO_API_RANDOM = 'https://dog.ceo/api/breeds/image/random';
 
