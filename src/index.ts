@@ -3,6 +3,7 @@ import { listen } from './listen';
 import { createWinstonLogger } from './winston/winston';
 import { createTwitterClient } from './clients/create-twitter-client';
 import { createUnsplashClient } from './clients/create-unsplash-client';
+import { KeywordInTweet } from 'keyword-in-tweet';
 
 // Create Winston Logger
 export const logger = createWinstonLogger();
