@@ -18,6 +18,8 @@ export const USERNAME = 'INeedADogPic';
 export const APP_USERNAME = USERNAME.toLowerCase();
 export const TWITTER_MENTION = `@${APP_USERNAME}`;
 
+export const KEYWORD = '!bark!';
+
 export const DOG_CEO_API_RANDOM = 'https://dog.ceo/api/breeds/image/random';
 
 export const THE_DOG_API_API_KEY = env.get('THEDOGAPI_API_KEY').required().asString();
